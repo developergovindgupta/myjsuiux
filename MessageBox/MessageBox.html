@@ -1,0 +1,153 @@
+<link rel="stylesheet" type="text/css" href="MessageBox.min.css" />
+
+<script src="MessageBox.min.js"></script>
+
+<h1>
+  JavaScript:
+</h1>
+<b>
+  <ul style="padding-left: 50px;">
+    <li>
+      MessageBox.show(message)
+    </li>
+    <li>
+      MessageBox.show(message, title)
+    </li>
+    <li>
+      MessageBox.show(message, title, buttonActions)
+    </li>
+    <li>
+      MessageBox.show(message, title, buttonsList)
+    </li>
+    <li>
+      MessageBox.show(message, title, buttonsList, defaultButtonIndex)
+    </li>
+  </ul>
+</b>
+<hr />
+<h3>Description:</h3>
+<p>
+  MessageBox is an extenstion of javascript that provide facility to display
+  html message as popup with custom action button(s). It is useful if we want to
+  display html as message or multiple action buttons and want to take decision
+  accordingly. It is an replacement of javascript:alert box. Where alert box
+  have only one button 'Ok' and display only text message.
+</p>
+<p>
+  <h3>Features of MessageBox</h3>
+  <ul style="padding-left: 50px;">
+    <li>
+      can display html message
+    </li>
+    <li>
+      can have multiple user defined buttons 
+    </li>
+    <li>
+      can take decision on button click
+    </li>
+    <li>
+       can apply css styling
+    </li>
+    <li>
+      can not stop the execution of rest of program
+    </li>
+    <li>
+      can take decision on close
+    </li>
+    <li>
+      can define promise like structure
+    </li>
+    <li>
+      can be used many ways
+    </li>
+    <li>
+      have multiple overloaded structure 
+    </li>
+    
+  </ul>
+</p>
+<hr>
+<h3>Syntax :</h3>
+<p>
+  MessageBox.show( <i>message, [title], [buttonsActionList], defaultButtonIndex</i> )<i>.buttonActionMethods(fn)</i>
+  <ul style="padding-left: 50px;">
+<li>
+  <b>message :</b> <i>Required </i> [text/html/object] that display as message in MessageBox.
+</li>
+<li>
+  <b>title :</b> <i>[Optional]</i> title of MessageBox popup window. if not passed then default title is "MessageBox"
+</li>
+<li>
+  <b>[buttonsActionList] : </b> [Optional] Array of Button Names or
+    <div style="padding-left:200px;">
+       Array of Objects <br>
+      {<br>
+    btnCaption | btnText | caption | text,<br>
+    buttonAction | btnAction | action | fn,<br>
+    isActive | isDefault | active | default,<br>
+    cssClass | class | className<br>
+    }<br>
+    <br>
+    if not passed default "OK" button will display.
+  </div>
+  
+</li>
+<li>
+  <b>
+    defaultButtonIndex :
+  </b>
+  [Optional] zero base index value of which button will be focused when MessageBox have multiple button 
+</li>
+<li>
+  <b>.buttonActionMethods(fn) : </b> define callBack methods that will execute after different buttons of MessageBox  clicked.
+        <ul style="padding-left: 100px;">
+          <li>
+            <b>.then(fn) : </b> callBack when "OK" button will clicked.
+          </li>
+          <li>
+            <b>.onClose(fn) : </b> callBack when MessageBox close button will clicked.
+          </li>
+          <li>
+            <b>.obButton<i>n</i>(fn) : </b> callBack when MessageBox buttons will clicked. As 'onButton1', 'onButton2', 'onButton...'
+          </li>
+        </ul>
+</li>
+  </ul>
+</p>
+<hr />
+<h3>Examples : </h3>
+
+    
+    <div class="divDemostration">
+    <div class="divDemoDescription">
+
+    </div>
+    <div class="divDemoCode">
+    MessageBox.show("Hello World");
+    </div>
+    <div class="divDemoButton">
+        <button onclick="MessageBox_Example1()">Demo</button>
+    </div>
+    <div class="divDemoImage" >
+    <img style="width:300px;" src="data:image/png;base64,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" alt="">
+    </div>
+    <script>
+      function MessageBox_Example1(){
+        MessageBox.show("Hello World");
+      }
+    </script>
+    </div>
+    
+
+
+
+<hr>
+    <input
+      type="button"
+      value="Show MessageBox"
+      onclick="MessageBox.show('Hello World!')"
+    />
+<script type="text/javascript" exclude>
+  window.location.href =
+    window.location.origin + "?page=" + window.location.pathname;
+</script>
